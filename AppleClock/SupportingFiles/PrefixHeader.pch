@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  AppleClock
+//
+//  Created by 杨春贵 on 2018/12/13.
+//  Copyright © 2018 com.yangcg.learn.AppleClock. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "Define.h"
+
+#endif /* PrefixHeader_pch */

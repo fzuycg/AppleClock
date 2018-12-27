@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>alarm</key>
+	<array>
+		<dict>
+			<key>alarmDateStr</key>
+			<string>12:30</string>
+			<key>explain</key>
+			<string>闹钟</string>
+			<key>isOpen</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>alarmDateStr</key>
+            <string>09:21</string>
+			<key>explain</key>
+			<string>锻炼</string>
+			<key>isOpen</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>alarmDateStr</key>
+            <string>23:05</string>
+			<key>explain</key>
+			<string>起床</string>
+			<key>isOpen</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>alarmDateStr</key>
+            <string>15:56</string>
+			<key>explain</key>
+			<string>午餐</string>
+			<key>isOpen</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>alarmDateStr</key>
+            <string>15:21</string>
+			<key>explain</key>
+			<string>碎觉</string>
+			<key>isOpen</key>
+			<false/>
+		</dict>
+	</array>
+</dict>
+</plist>

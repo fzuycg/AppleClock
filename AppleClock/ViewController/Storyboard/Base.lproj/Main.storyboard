@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sad-xZ-59N">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--世界时钟-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="GlobeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="世界时钟" id="KJh-Uw-laf">
+                        <barButtonItem key="leftBarButtonItem" title="编辑" id="47Z-HF-Hun">
+                            <color key="tintColor" red="0.94117647058823528" green="0.60392156862745094" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="editButtonAction:" destination="BYZ-38-t0r" id="9Bj-YV-EQg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="navigationBarItem_add" id="quQ-eu-dzU">
+                            <connections>
+                                <action selector="addButtonAction:" destination="BYZ-38-t0r" id="YsI-JN-7tC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="47Z-HF-Hun" id="VdT-rp-VBJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-740" y="1481"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4ew-Lg-Kg9">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="sad-xZ-59N" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6Mc-Vo-XUb">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="0.94117647059999998" green="0.60392156860000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.94117647059999998" green="0.60392156860000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="D2E-Hd-5dJ" kind="relationship" relationship="viewControllers" id="AUn-BB-C0N"/>
+                        <segue destination="rmz-qr-h8K" kind="relationship" relationship="viewControllers" id="mWU-7s-HJH"/>
+                        <segue destination="Exr-hN-wbB" kind="relationship" relationship="viewControllers" id="IYt-eR-UId"/>
+                        <segue destination="zLR-ll-MU1" kind="relationship" relationship="viewControllers" id="2M8-Kp-Zrs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hGH-Fx-bcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-92" y="17.541229385307346"/>
+        </scene>
+        <!--闹钟-->
+        <scene sceneID="Fah-oG-lgI">
+            <objects>
+                <viewController id="AIR-Rp-djC" customClass="AlarmViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mnn-c4-PxY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.050981052219867706" green="0.050979159772396088" blue="0.050980441272258759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="BVA-dI-ZFh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="闹钟" id="EEb-Z0-GPM">
+                        <barButtonItem key="leftBarButtonItem" title="编辑" id="7dd-0s-xm5">
+                            <color key="tintColor" red="0.94117647058823528" green="0.60392156862745094" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="editButtonAction:" destination="AIR-Rp-djC" id="2O3-px-NKz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="navigationBarItem_add" id="SA2-CC-VSq">
+                            <connections>
+                                <segue destination="n9g-a2-wCf" kind="presentation" id="gJP-5L-YwW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="7dd-0s-xm5" id="qB4-FD-EWd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aha-1h-PYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10" y="1480"/>
+        </scene>
+        <!--添加闹钟-->
+        <scene sceneID="BWK-WM-rzA">
+            <objects>
+                <viewController storyboardIdentifier="EditAlarmVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FCM-cB-7b2" customClass="EditAlarmController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sd1-zP-zSG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="deviceRGB"/>
+                        <viewLayoutGuide key="safeArea" id="PvG-iN-9zL"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="添加闹钟" id="f6N-4k-feG">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="w1O-No-ytq">
+                            <color key="tintColor" red="0.94117647059999998" green="0.60392156860000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="cancelButtonAction:" destination="FCM-cB-7b2" id="d5g-8F-zqj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="存储" id="eof-9T-FI9">
+                            <color key="tintColor" red="0.94117647059999998" green="0.60392156860000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="saveButtonAction:" destination="FCM-cB-7b2" id="crM-WV-Y85"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cAw-JJ-KVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="662" y="2247"/>
+        </scene>
+        <!--计时器-->
+        <scene sceneID="n9A-zi-O6N">
+            <objects>
+                <viewController id="b9a-Cv-Fj7" customClass="TimerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Er-fb-3px">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="deviceRGB"/>
+                        <viewLayoutGuide key="safeArea" id="jpQ-Wn-bGs"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="计时器" id="QUC-G0-qvr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1Z-OE-Wk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1417" y="1480"/>
+        </scene>
+        <!--秒表-->
+        <scene sceneID="hOh-g4-WfC">
+            <objects>
+                <viewController id="H8c-rM-X21" customClass="StopwatchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kcD-Uj-vH8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="deviceRGB"/>
+                        <viewLayoutGuide key="safeArea" id="wBp-R1-9ax"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="秒表" id="U7N-cO-eMt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ezC-Ut-Oej" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="1480"/>
+        </scene>
+        <!--世界时间-->
+        <scene sceneID="95v-gs-V61">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D2E-Hd-5dJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="世界时间" image="tabbar_globe" selectedImage="tabbar_globe_highlight" id="qdq-V5-shA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Ncp-6i-30o">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4kl-YP-dLL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NVw-ib-Gle" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-740" y="759.67016491754134"/>
+        </scene>
+        <!--闹钟-->
+        <scene sceneID="30R-2j-vWt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rmz-qr-h8K" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="闹钟" image="tabbar_alarm" selectedImage="tabbar_alarm_highlight" id="IkS-xo-b8H"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="UBl-aB-nFn">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AIR-Rp-djC" kind="relationship" relationship="rootViewController" id="U1X-le-vOG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aa2-0H-ZOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10.4" y="759.67016491754134"/>
+        </scene>
+        <!--秒表-->
+        <scene sceneID="VgQ-Eb-ZJW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Exr-hN-wbB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="秒表" image="tabbar_stopwatch" selectedImage="tabbar_stopwatch_highlight" id="nRC-qQ-0SY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Cm6-2m-3Rm">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="H8c-rM-X21" kind="relationship" relationship="rootViewController" id="Ixg-tg-0WG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VEe-Mm-BGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="759.67016491754134"/>
+        </scene>
+        <!--计时器-->
+        <scene sceneID="JuM-P2-2Gl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zLR-ll-MU1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="计时器" image="tabbar_timer" selectedImage="tabbar_timer_highlight" id="Jbc-W8-4Pm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="as5-8Z-9N8">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="b9a-Cv-Fj7" kind="relationship" relationship="rootViewController" id="EIb-MP-XAh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ad9-VZ-wwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1447" y="760"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r2L-bp-fYp">
+            <objects>
+                <navigationController storyboardIdentifier="EditAlarmNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="n9g-a2-wCf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="ZFA-GS-zki">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FCM-cB-7b2" kind="relationship" relationship="rootViewController" id="tmq-nk-fJI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Jb-Xd-ZLi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10" y="2247"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="navigationBarItem_add" width="18" height="18"/>
+        <image name="tabbar_alarm" width="30" height="30"/>
+        <image name="tabbar_alarm_highlight" width="30" height="30"/>
+        <image name="tabbar_globe" width="30" height="30"/>
+        <image name="tabbar_globe_highlight" width="30" height="30"/>
+        <image name="tabbar_stopwatch" width="30" height="30"/>
+        <image name="tabbar_stopwatch_highlight" width="30" height="30"/>
+        <image name="tabbar_timer" width="30" height="30"/>
+        <image name="tabbar_timer_highlight" width="30" height="30"/>
+    </resources>
+</document>
