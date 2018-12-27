@@ -1,2 +1,3 @@
-# YCGClock
-a clock
+# AppleClock
+
+imitation Apple Clock App
