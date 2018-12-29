@@ -31,21 +31,28 @@
 }
 
 - (IBAction)againSwitchAction:(id)sender {
+    NSMutableDictionary *myDic = [NSMutableDictionary dictionary];
+    [myDic setDictionary:self.dataDic];
     
+    [myDic setValue:self.againSwitch.on ? @"1" : @"0" forKey:@"content"];
+    
+    if (self.switchClick) {
+        self.switchClick(myDic);
+    }
 }
 
 #pragma mark - setter
-- (void)setModel:(EditAlarmCellModel *)model {
-    _model = model;
+- (void)setDataDic:(NSDictionary *)dataDic {
+    _dataDic = dataDic;
+    EditAlarmCellModel *model = [[EditAlarmCellModel alloc] initWithDictionary:dataDic];
     self.titleLabel.text = model.title;
     BOOL isLast = [model.title isEqualToString:@"稍后提醒"];
     self.contentLabel.hidden = isLast;
     self.moreImageView.hidden = isLast;
     self.againSwitch.hidden = !isLast;
     
-    self.contentLabel.text = model.contentStr;
+    self.contentLabel.text = model.content;
     self.againSwitch.on = model.isAgain;
 }
-
 
 @end

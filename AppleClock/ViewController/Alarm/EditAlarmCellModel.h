@@ -14,14 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 // 标题
 @property (nonatomic, strong) NSString *title;
 // 内容
-@property (nonatomic, strong) NSString *contentStr;
+@property (nonatomic, strong) NSString *content;
 
+#pragma mark - 处理后的数据
 // 稍后提醒
 @property (nonatomic, assign) BOOL isAgain;
 // 重复方式
 @property (nonatomic, strong) NSMutableArray *repeatArray;
-// 铃声
-//@property (nonatomic, strong) NSString *ringName;
 
 @end
 

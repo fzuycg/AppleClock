@@ -37,6 +37,10 @@
     [self addSubview:bottomLine];
 }
 
+- (void)setDefualtDate:(NSDate *)defualtDate {
+    [self.datePicker setDate:defualtDate];
+}
+
 
 #pragma mark - 时间选择器选择结束
 - (void)dataPickerChanged:(UIDatePicker *)datePicker {

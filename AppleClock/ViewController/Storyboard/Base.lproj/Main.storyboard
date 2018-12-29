@@ -88,7 +88,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="navigationBarItem_add" id="SA2-CC-VSq">
                             <connections>
-                                <segue destination="n9g-a2-wCf" kind="presentation" id="gJP-5L-YwW"/>
+                                <segue destination="n9g-a2-wCf" kind="presentation" identifier="goEditAlarmVC" id="gJP-5L-YwW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

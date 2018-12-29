@@ -7,9 +7,10 @@
 //
 
 #import "Jastor.h"
-#import "EditAlarmCellModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+static NSString *argumentDicKey = @"ArgumentDicKey";
 
 @interface AlarmInfoModel : Jastor
 // 闹钟时间
@@ -19,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 是否开启
 @property (nonatomic, assign) BOOL isOpen;
 // 参数
-@property (nonatomic, strong) NSMutableArray<EditAlarmCellModel*> *argumentModel;
+//@property (nonatomic, strong) NSArray *argumentArray;
+
+@property (nonatomic, strong) NSDictionary *argumentDic;
 
 
 #pragma mark - 处理过的数据(用于排序)

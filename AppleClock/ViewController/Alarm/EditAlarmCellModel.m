@@ -10,7 +10,17 @@
 
 @implementation EditAlarmCellModel
 
-- (NSString *)contentStr {
+- (BOOL)isAgain {
+    if ([self.title isEqualToString:@"稍后提醒"]) {
+        NSInteger i = [self.content integerValue];
+        if (i == 1) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (NSString *)content {
     if ([_title isEqualToString:@"重复"]) {
         NSString *conStr = @"永不";
         NSMutableString *mutStr = nil;
@@ -27,9 +37,8 @@
             conStr = mutStr;
         }
         return conStr;
-    }else{
-        return _contentStr;
     }
+    return _content;
 }
 
 - (NSString *)zhFromNum:(NSString *)num {

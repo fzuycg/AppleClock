@@ -17,7 +17,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSDate *alarmDate;
 @property (nonatomic, strong) UIButton *deleteButton;
-@property (nonatomic, strong) NSMutableArray<EditAlarmCellModel*> *cellModelArray;
+@property (nonatomic, strong) NSMutableArray *cellDataArray;
 
 @end
 
@@ -25,34 +25,50 @@ static NSString *cellId = @"EditAlarmCell";
 
 @implementation EditAlarmController {
     NSString    *_alarmDateStr;     //时间
-    NSString    *_explainStr;       //标签说明
-    BOOL        _isAgain;           //是否稍后提醒
-    NSMutableArray     *_repeatArray;      //重复日期
-    
-    BOOL        _isChange;  //是否是修改进入
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // 初始化默认时间
+    self.alarmDate = [NSDate date];
+    // 获取数据
+    [self readData];
+    // 创建界面
     [self createUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // 初始化默认数据
-    self.alarmDate = [NSDate date];
-    _explainStr = @"闹钟";
-    _isAgain = YES;
+    
 }
 
 - (void)createUI {
-    // 根据indexPath判断是否是修改编辑
-    _isChange = self.indexPath != nil;
-    
     [self.view addSubview:self.pickerView];
     [self.view addSubview:self.tableView];
-    self.deleteButton.hidden = !_isChange;;
+    self.deleteButton.hidden = self.indexPath == nil;
+    
+    [self.pickerView setDefualtDate:self.alarmDate];
+}
+
+- (void)readData {
+    if (self.indexPath) {
+        AlarmInfoModel *infoModel = self.modelArray[self.indexPath.row];
+        NSArray *array = infoModel.argumentDic[argumentDicKey];
+        [self.cellDataArray removeAllObjects];
+        [self.cellDataArray addObjectsFromArray:array];
+        
+        self.alarmDate = [self stringConversionNSDate:infoModel.alarmDateStr];
+    }
+}
+
+/**
+ 时间字符串转NSDate
+ */
+- (NSDate *)stringConversionNSDate:(NSString *)dateStr {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSDate *datestr = [dateFormatter dateFromString:dateStr];
+    return datestr;
 }
 
 - (IBAction)cancelButtonAction:(id)sender {
@@ -62,18 +78,33 @@ static NSString *cellId = @"EditAlarmCell";
 - (IBAction)saveButtonAction:(id)sender {
     AlarmInfoModel *model = [[AlarmInfoModel alloc] init];
     model.alarmDateStr = _alarmDateStr;
-    model.explain = _explainStr;
     model.isOpen = YES;
+    model.argumentDic = @{argumentDicKey: self.cellDataArray};
     
-    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:alarmInfoKey];
-    NSMutableArray *dicArray = [NSMutableArray arrayWithArray:array];
-    [dicArray addObject:model.toDictionary];
-    [[NSUserDefaults standardUserDefaults] setObject:dicArray forKey:alarmInfoKey];
+    if (self.indexPath) {
+        [self.modelArray replaceObjectAtIndex:self.indexPath.row withObject:model];
+    }else{
+        [self.modelArray addObject:model];
+    }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self saveDataForCache];
 }
 
 - (void)deleteButtonAction {
+    [self.modelArray removeObjectAtIndex:self.indexPath.row];
+    [self saveDataForCache];
+}
+
+/**
+ 保存数据到缓存并退出界面
+ */
+- (void)saveDataForCache {
+    NSMutableArray *dicArray = [NSMutableArray array];
+    for (AlarmInfoModel *model in self.modelArray) {
+        [dicArray addObject:model.toDictionary];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:dicArray forKey:alarmInfoKey];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -97,13 +128,16 @@ static NSString *cellId = @"EditAlarmCell";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.isFirst = NO;
     cell.isLast = indexPath.row==3;
-    cell.model = self.cellModelArray[indexPath.row];
+    NSDictionary *dic = self.cellDataArray[indexPath.row];
+    cell.dataDic = dic;
     
-//    cell.switchClick = ^(AlarmInfoModel *model) {
-//        NSLog(@"点击了第%ld行", (long)indexPath.row);
-//        NSLog(@"开关状态:%@", model.isOpen ? @"开" : @"关");
-//        [self.modelArray replaceObjectAtIndex:indexPath.row withObject:model];
-//    };
+    if (indexPath.row==3) {
+        cell.switchClick = ^(NSDictionary *dic) {
+            NSLog(@"开关状态：%@", dic[@"content"]);
+            [self.cellDataArray replaceObjectAtIndex:indexPath.row withObject:dic];
+        };
+    }
+    
     return cell;
 }
 
@@ -168,17 +202,27 @@ static NSString *cellId = @"EditAlarmCell";
     return _deleteButton;
 }
 
-- (NSMutableArray<EditAlarmCellModel *> *)cellModelArray {
-    if (!_cellModelArray) {
+- (NSMutableArray *)cellDataArray {
+    if (!_cellDataArray) {
         NSArray *titleArray = @[@"重复", @"标签", @"铃声", @"稍后提醒"];
-        _cellModelArray = [NSMutableArray array];
+        NSArray *contentArray = @[@"从不", @"闹钟", @"默认", @"1"];
+        _cellDataArray = [NSMutableArray array];
         for (int i=0; i<4; i++) {
-            EditAlarmCellModel *model = [[EditAlarmCellModel alloc] init];
-            model.title = titleArray[i];
-            [_cellModelArray addObject:model];
+            NSDictionary *dic = @{
+                                  @"title": titleArray[i],
+                                  @"content": contentArray[i]
+                                  };
+            [_cellDataArray addObject:dic];
         }
     }
-    return _cellModelArray;
+    return _cellDataArray;
+}
+
+- (NSMutableArray<AlarmInfoModel *> *)modelArray {
+    if (!_modelArray) {
+        _modelArray = [NSMutableArray array];
+    }
+    return _modelArray;
 }
 
 @end

@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AlarmDatePickerView : UIView
 @property (nonatomic, weak) id<AlarmDatePickerViewDelegate> delegate;
 
+- (void)setDefualtDate:(NSDate *)defualtDate;
+
 @end
 
 NS_ASSUME_NONNULL_END

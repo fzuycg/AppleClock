@@ -7,6 +7,7 @@
 //
 
 #import "AlarmInfoModel.h"
+#import "EditAlarmCellModel.h"
 
 @implementation AlarmInfoModel
 
@@ -18,9 +19,11 @@
 
 - (NSString *)explain {
     NSString *exStr = @"闹钟";
-    for (EditAlarmCellModel *model in self.argumentModel) {
+    NSArray *array = self.argumentDic[argumentDicKey];
+    for (NSDictionary *dic in array) {
+        EditAlarmCellModel *model = [[EditAlarmCellModel alloc] initWithDictionary:dic];
         if ([model.title isEqualToString:@"标签"]) {
-            exStr = model.contentStr;
+            exStr = model.content;
         }
     }
     return exStr;

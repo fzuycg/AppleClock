@@ -27,7 +27,6 @@ static NSString *cellId = @"AlarmViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self getAlarmInfoData];
     [self createUI];
 }
 
@@ -171,9 +170,6 @@ static NSString *cellId = @"AlarmViewCell";
         [self.tableView reloadData];
     }];
     
-//    deleteAction.image = [UIImage imageNamed:@""];
-//    deleteAction.backgroundColor = [UIColor redColor];
-    
     UISwipeActionsConfiguration *config  = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction]];
     return config;
 }
@@ -220,5 +216,21 @@ static NSString *cellId = @"AlarmViewCell";
     }
     return _modelArray;
 }
+
+
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+     if ([segue.identifier isEqualToString:@"goEditAlarmVC"]) {
+         UINavigationController *navigation = [segue destinationViewController];
+         EditAlarmController *vc = navigation.viewControllers[0];
+         vc.modelArray = self.modelArray;
+         
+     }
+ }
+ 
 
 @end

@@ -9,10 +9,14 @@
 #import "BaseTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@class EditAlarmCellModel;
+
+typedef void (^SwitchClick) (NSDictionary *);
 
 @interface EditAlarmCell : BaseTableViewCell
-@property (nonatomic, strong) EditAlarmCellModel *model;
+
+@property (nonatomic, strong) NSDictionary *dataDic;
+
+@property(nonatomic, copy) SwitchClick switchClick;
 
 @end
 
