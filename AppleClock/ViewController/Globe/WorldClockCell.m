@@ -33,8 +33,8 @@
 - (void)setModel:(WorldClockModel *)model {
     _model = model;
     self.cityNameLabel.text = model.cityName;
-    self.jetLagLabel.text = [NSString stringWithFormat:@"今天，%ld小时", (long)model.timeZone-8];
-    self.currentDateLabel.text = model.localDate;
+    self.jetLagLabel.text = model.dateInfoStr;
+    self.currentDateLabel.text = model.localDateStr;
 }
 
 - (void)setIsEditing:(BOOL)isEditing {

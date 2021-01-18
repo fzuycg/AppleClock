@@ -26,9 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 时差（北京时间为基准）
 //@property (nonatomic, assign) NSInteger jetLag;
 // 当地时间
-@property (nonatomic, strong) NSString *localDate;
+@property (nonatomic, strong) NSString *localDateStr;
 // 对应的信息
-@property (nonatomic, strong) NSString *dateInfo;
+@property (nonatomic, strong) NSString *dateInfoStr;
 
 @end
 

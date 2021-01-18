@@ -94,7 +94,7 @@ static NSString *cellId = @"AlarmViewCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AlarmViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    AlarmViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     cell.model = self.modelArray[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.isEditing = self.isEditing;

@@ -9,7 +9,7 @@
 #import "YCGUnicode.h"
 #import <objc/runtime.h>
 
-static inline void cft_swizzleSelector(Class class, SEL originalSelector, SEL swizzledSelector) {
+static inline void CGY_swizzleSelector(Class class, SEL originalSelector, SEL swizzledSelector) {
     Method originalMethod = class_getInstanceMethod(class, originalSelector);
     Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
     if (class_addMethod(class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))) {
@@ -19,7 +19,7 @@ static inline void cft_swizzleSelector(Class class, SEL originalSelector, SEL sw
     }
 }
 
-@implementation NSString (CFTUnicode)
+@implementation NSString (CGYUnicode)
 
 - (NSString *)stringByReplaceUnicode {
     NSMutableString *convertedString = [self mutableCopy];
@@ -35,15 +35,15 @@ static inline void cft_swizzleSelector(Class class, SEL originalSelector, SEL sw
 
 @end
 
-@implementation NSArray (CFTUnicode)
+@implementation NSArray (CGYUnicode)
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class class = [self class];
-        cft_swizzleSelector(class, @selector(description), @selector(cft_description));
-        cft_swizzleSelector(class, @selector(descriptionWithLocale:), @selector(cft_descriptionWithLocale:));
-        cft_swizzleSelector(class, @selector(descriptionWithLocale:indent:), @selector(cft_descriptionWithLocale:indent:));
+        CGY_swizzleSelector(class, @selector(description), @selector(CGY_description));
+        CGY_swizzleSelector(class, @selector(descriptionWithLocale:), @selector(CGY_descriptionWithLocale:));
+        CGY_swizzleSelector(class, @selector(descriptionWithLocale:indent:), @selector(CGY_descriptionWithLocale:indent:));
     });
 }
 
@@ -54,68 +54,68 @@ static inline void cft_swizzleSelector(Class class, SEL originalSelector, SEL sw
  *  但是又觉得这样太粗暴了。。。。
  */
 
-- (NSString *)cft_description {
-    return [[self cft_description] stringByReplaceUnicode];
+- (NSString *)CGY_description {
+    return [[self CGY_description] stringByReplaceUnicode];
 }
 
-- (NSString *)cft_descriptionWithLocale:(nullable id)locale {
-    return [[self cft_descriptionWithLocale:locale] stringByReplaceUnicode];
+- (NSString *)CGY_descriptionWithLocale:(nullable id)locale {
+    return [[self CGY_descriptionWithLocale:locale] stringByReplaceUnicode];
 }
 
-- (NSString *)cft_descriptionWithLocale:(nullable id)locale indent:(NSUInteger)level {
-    return [[self cft_descriptionWithLocale:locale indent:level] stringByReplaceUnicode];
+- (NSString *)CGY_descriptionWithLocale:(nullable id)locale indent:(NSUInteger)level {
+    return [[self CGY_descriptionWithLocale:locale indent:level] stringByReplaceUnicode];
 }
 
 @end
 
-@implementation NSDictionary (CFTUnicode)
+@implementation NSDictionary (CGYUnicode)
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class class = [self class];
-        cft_swizzleSelector(class, @selector(description), @selector(cft_description));
-        cft_swizzleSelector(class, @selector(descriptionWithLocale:), @selector(cft_descriptionWithLocale:));
-        cft_swizzleSelector(class, @selector(descriptionWithLocale:indent:), @selector(cft_descriptionWithLocale:indent:));
+        CGY_swizzleSelector(class, @selector(description), @selector(CGY_description));
+        CGY_swizzleSelector(class, @selector(descriptionWithLocale:), @selector(CGY_descriptionWithLocale:));
+        CGY_swizzleSelector(class, @selector(descriptionWithLocale:indent:), @selector(CGY_descriptionWithLocale:indent:));
     });
 }
 
-- (NSString *)cft_description {
-    return [[self cft_description] stringByReplaceUnicode];
+- (NSString *)CGY_description {
+    return [[self CGY_description] stringByReplaceUnicode];
 }
 
-- (NSString *)cft_descriptionWithLocale:(nullable id)locale {
-    return [[self cft_descriptionWithLocale:locale] stringByReplaceUnicode];
+- (NSString *)CGY_descriptionWithLocale:(nullable id)locale {
+    return [[self CGY_descriptionWithLocale:locale] stringByReplaceUnicode];
 }
 
-- (NSString *)cft_descriptionWithLocale:(nullable id)locale indent:(NSUInteger)level {
-    return [[self cft_descriptionWithLocale:locale indent:level] stringByReplaceUnicode];
+- (NSString *)CGY_descriptionWithLocale:(nullable id)locale indent:(NSUInteger)level {
+    return [[self CGY_descriptionWithLocale:locale indent:level] stringByReplaceUnicode];
 }
 
 @end
 
-@implementation NSSet (CFTUnicode)
+@implementation NSSet (CGYUnicode)
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class class = [self class];
-        cft_swizzleSelector(class, @selector(description), @selector(cft_description));
-        cft_swizzleSelector(class, @selector(descriptionWithLocale:), @selector(cft_descriptionWithLocale:));
-        cft_swizzleSelector(class, @selector(descriptionWithLocale:indent:), @selector(cft_descriptionWithLocale:indent:));
+        CGY_swizzleSelector(class, @selector(description), @selector(CGY_description));
+        CGY_swizzleSelector(class, @selector(descriptionWithLocale:), @selector(CGY_descriptionWithLocale:));
+        CGY_swizzleSelector(class, @selector(descriptionWithLocale:indent:), @selector(CGY_descriptionWithLocale:indent:));
     });
 }
 
-- (NSString *)cft_description {
-    return [[self cft_description] stringByReplaceUnicode];
+- (NSString *)CGY_description {
+    return [[self CGY_description] stringByReplaceUnicode];
 }
 
-- (NSString *)cft_descriptionWithLocale:(nullable id)locale {
-    return [[self cft_descriptionWithLocale:locale] stringByReplaceUnicode];
+- (NSString *)CGY_descriptionWithLocale:(nullable id)locale {
+    return [[self CGY_descriptionWithLocale:locale] stringByReplaceUnicode];
 }
 
-- (NSString *)cft_descriptionWithLocale:(nullable id)locale indent:(NSUInteger)level {
-    return [[self cft_descriptionWithLocale:locale indent:level] stringByReplaceUnicode];
+- (NSString *)CGY_descriptionWithLocale:(nullable id)locale indent:(NSUInteger)level {
+    return [[self CGY_descriptionWithLocale:locale indent:level] stringByReplaceUnicode];
 }
 
 @end

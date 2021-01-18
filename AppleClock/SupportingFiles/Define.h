@@ -26,7 +26,7 @@
 #define kTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
 
 //-----------------通用参数------------------------
-static const CGFloat contentEdge = 15; //内容边距
+static const CGFloat contentEdge = 16; //内容边距
 static const CGFloat lineHeight = 0.5; //线条高度
 
 FOUNDATION_EXPORT UIColor *viewBgColor(void);

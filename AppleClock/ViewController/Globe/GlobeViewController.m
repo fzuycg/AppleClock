@@ -97,6 +97,11 @@ static NSString *cellId = @"WorldClockCell";
     for (WorldClockCell *cell in [self.tableView visibleCells]) {
         cell.isEditing = isEditing;
     }
+    
+    // 编辑结束，持久化数据
+    if (!isEditing) {
+        
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -105,7 +110,7 @@ static NSString *cellId = @"WorldClockCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WorldClockCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    WorldClockCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     cell.model = self.dataArray[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.isEditing = self.isEditing;//这里设置主要是针对未渲染的部分

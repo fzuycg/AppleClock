@@ -36,10 +36,10 @@
 		C8853D3E21C88937008419B4 /* AlarmInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8853D3D21C88937008419B4 /* AlarmInfoModel.m */; };
 		C8853D4221C889A7008419B4 /* AlarmViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8853D4021C889A7008419B4 /* AlarmViewCell.m */; };
 		C8853D4321C889A7008419B4 /* AlarmViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8853D4121C889A7008419B4 /* AlarmViewCell.xib */; };
-		C8853D4521C91D3D008419B4 /* AlarmInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8853D4421C91D3D008419B4 /* AlarmInfo.plist */; };
 		C89EBF2C21D31D12000005F4 /* EditAlarmCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C89EBF2B21D31D12000005F4 /* EditAlarmCellModel.m */; };
 		C89EBF3521D61C02000005F4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C89EBF3321D61C02000005F4 /* Reachability.m */; };
 		C89EBF3821D72405000005F4 /* YCGUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = C89EBF3721D72405000005F4 /* YCGUnicode.m */; };
+		C8C52B62221ECECC00C234C9 /* AddGlobeDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C52B61221ECECC00C234C9 /* AddGlobeDateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,13 +116,14 @@
 		C8853D3F21C889A7008419B4 /* AlarmViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmViewCell.h; sourceTree = "<group>"; };
 		C8853D4021C889A7008419B4 /* AlarmViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmViewCell.m; sourceTree = "<group>"; };
 		C8853D4121C889A7008419B4 /* AlarmViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmViewCell.xib; sourceTree = "<group>"; };
-		C8853D4421C91D3D008419B4 /* AlarmInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AlarmInfo.plist; sourceTree = "<group>"; };
 		C89EBF2A21D31D12000005F4 /* EditAlarmCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditAlarmCellModel.h; sourceTree = "<group>"; };
 		C89EBF2B21D31D12000005F4 /* EditAlarmCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditAlarmCellModel.m; sourceTree = "<group>"; };
 		C89EBF3321D61C02000005F4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C89EBF3421D61C02000005F4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C89EBF3621D72405000005F4 /* YCGUnicode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCGUnicode.h; sourceTree = "<group>"; };
 		C89EBF3721D72405000005F4 /* YCGUnicode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCGUnicode.m; sourceTree = "<group>"; };
+		C8C52B60221ECECC00C234C9 /* AddGlobeDateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddGlobeDateViewController.h; sourceTree = "<group>"; };
+		C8C52B61221ECECC00C234C9 /* AddGlobeDateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddGlobeDateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +222,6 @@
 				C87520F021C34E860062852F /* AppIcon */,
 				C87520A121C277030062852F /* Assets.xcassets */,
 				C87520F321C3506D0062852F /* TimeZone.plist */,
-				C8853D4421C91D3D008419B4 /* AlarmInfo.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -257,6 +257,8 @@
 				C87520EB21C28A200062852F /* WorldClockCell.m */,
 				C87520ED21C341030062852F /* WorldClockModel.h */,
 				C87520EE21C341030062852F /* WorldClockModel.m */,
+				C8C52B60221ECECC00C234C9 /* AddGlobeDateViewController.h */,
+				C8C52B61221ECECC00C234C9 /* AddGlobeDateViewController.m */,
 			);
 			path = Globe;
 			sourceTree = "<group>";
@@ -479,7 +481,6 @@
 				C87520A221C277030062852F /* Assets.xcassets in Resources */,
 				C8739E2B21D1FC10003DDBB7 /* EditAlarmCell.xib in Resources */,
 				C87520A021C277010062852F /* Main.storyboard in Resources */,
-				C8853D4521C91D3D008419B4 /* AlarmInfo.plist in Resources */,
 				C87520F421C3506D0062852F /* TimeZone.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +510,7 @@
 				C87520D521C2787B0062852F /* BaseViewController.m in Sources */,
 				C87520DE21C2837F0062852F /* AlarmViewController.m in Sources */,
 				C8853D4221C889A7008419B4 /* AlarmViewCell.m in Sources */,
+				C8C52B62221ECECC00C234C9 /* AddGlobeDateViewController.m in Sources */,
 				C87520FB21C35F0D0062852F /* Jastor.m in Sources */,
 				C87520E421C283A50062852F /* TimerViewController.m in Sources */,
 				C87520EF21C341030062852F /* WorldClockModel.m in Sources */,
@@ -700,8 +702,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S5835VE7S9;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = XP242N85BR;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AppleClock/SupportingFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = AppleClock/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -711,7 +713,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yangcg.learn.AppleClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = DevProvision;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -721,8 +723,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S5835VE7S9;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = XP242N85BR;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AppleClock/SupportingFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = AppleClock/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -732,7 +734,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yangcg.learn.AppleClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = DevProvision;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
